@@ -1,6 +1,8 @@
 #!/bin/bash 
 # programmatic polling and SNS notification of TA limit checks
 
+SNSARN="arn:aws:sns:us-west-2:141820633316:AWS-Limits"     #replace this value with your own SNS ARN
+
 Limit () {
 echo "Contacting Trusted Advisor..."
 
@@ -12,7 +14,7 @@ aws support describe-trusted-advisor-check-result --check-id "eW7HH0l7J9" --quer
 Publish () {
 echo "Publishing message to SNS topic..."
 
-aws sns publish --topic-arn arn:aws:sns:us-west-2:141820633316:AWS-Limits --message "You have limits approaching their upper threshold. Please take action accordingly."
+aws sns publish --topic-arn $SNSARN --message "You have limits approaching their upper threshold. Please take action accordingly."
 }
 
 Limit
