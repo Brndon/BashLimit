@@ -3,10 +3,12 @@
 
 SNSARN="arn:aws:sns:us-west-2:141820633316:AWS-Limits"     #replace this value with your own SNS ARN
 
+> limitvalue.txt
+
 Limit () {
 echo "Contacting Trusted Advisor..."
 
-aws support describe-trusted-advisor-check-result --check-id "eW7HH0l7J9" --query 'result.sort_by(flaggedResources[?status!=`ok`],&metadata[2])' | jq  '.[].metadata' > limitvalue.txt
+aws support describe-trusted-advisor-check-result --check-id "S45wrEXrLz" --query 'result.sort_by(flaggedResources[?status!=`ok`],&metadata[2])' | jq  '.[].metadata' > limitvalue.txt
 # eW7HH0l7J9 - service limits
 # S45wrEXrLz - VPN Tunnel Redundancy
 }
