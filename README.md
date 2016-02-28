@@ -1,4 +1,4 @@
-# AWSLimitCheck
+# AWS Bash Limit
 LimitCheck.sh is a simple bash script to programmatically poll the Trusted Advisor resource limit checks. If any of your limits are found to be in Warning (i.e. "Yellow" or "Red") the script will publish a message to the SNS topic ARN provided.
 
 
